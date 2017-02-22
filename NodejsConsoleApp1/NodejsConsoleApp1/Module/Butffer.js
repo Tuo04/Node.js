@@ -12,7 +12,5 @@ module.exports = {
         const buf2 = Buffer.from('0213');
         const result = [buf1,buf2];
         console.log(result.sort(Buffer.compare));
-        console.trace();
     }
-
 }

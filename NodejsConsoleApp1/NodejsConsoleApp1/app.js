@@ -10,8 +10,16 @@ http.createServer(function (request, response) {
     response.writeHead(200, { "Content-Type": "text/html" });
     if (request.url != 'favicon.ico'){
         var url = URL.parse(request.url);
-        var pathName = url.pathname.toString().replace("\/","");
-        router[pathName](request, response);
+        
+        var pathName = url.pathname.toString().replace("\/", "");
+
+        if (pathName != "") {
+            router[pathName](request, response);
+        }
+        else {
+            response.write("Welcome");
+            response.end("");
+        }
     }
     buffer["buffer1"]();
     buffer["buffer2"]();
